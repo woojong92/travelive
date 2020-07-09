@@ -29,6 +29,7 @@ function* loadPosts() {
         yield delay(2000);
         yield put({
             type: LOAD_POSTS_SUCCESS,
+            // data: action.data
         })
     }catch(error) {
         yield put({
@@ -38,12 +39,14 @@ function* loadPosts() {
     }
 }
 
-function* uploadPost() {
-    console.log('uploadPost')
+function* uploadPost(action) {
+    console.log(action);
+    
     try{
         yield delay(2000)
         yield put({
-            type: UPLOAD_POST_SUCCESS
+            type: UPLOAD_POST_SUCCESS,
+            data: action.data
         })
     }catch(error) {
         yield put({

@@ -19,7 +19,7 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value}) => ({
 
 const initialState = {
     title: '',
-    content: '',
+    body: '',
     tags: []
 }
 

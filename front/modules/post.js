@@ -140,6 +140,7 @@ const initialState = {
     
     imagePaths: [], // 미리보기 이미지 경로
 
+    firstPostsLoaded: false,
     posts: [],
     isLoadingPosts: false,
     loadPostsError: false,
@@ -208,6 +209,7 @@ const post = (state = initialState, action) => {
             }
             case LOAD_POSTS_SUCCESS : {
                 draft.isLoadingPosts = false;
+                draft.firstPostsLoaded = true;
                 draft.posts = dummyPosts;//action.data;
                 break;
             }

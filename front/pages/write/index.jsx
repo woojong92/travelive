@@ -20,21 +20,25 @@ function write() {
     const { isLoadingPosts, loadPostsError, uploadPostSuccess } = useSelector( state => state.post)
 
     const onPublish = useCallback( () => {
+        console.log(title, body)
+        const data = {
+                    id: 10,
+                    User: {
+                        id: 1,
+                        nickname: 'woody',
+                    },
+                    Images: [{
+                        src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+                    }],
+                    title: title,
+                    body: body
+                }
+            
         dispatch({
             type: UPLOAD_POST_REQUEST,
-            payload: {
-                id: 10,
-                User: {
-                    id: 1,
-                    nickname: 'woody',
-                },
-                Images: [{
-                    src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
-                }],
-                title,
-                body
-            }
+            data: data
         })
+
         if(uploadPostSuccess){
             Router.push('/');
         }

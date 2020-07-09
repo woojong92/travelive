@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { Layout, Menu, Button, Avatar, Dropdown } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { LOG_OUT_REQUEST } from '../modules/user';
+import Router from 'next/router'
+
+
 const { Header, Content } = Layout;
 
 
@@ -19,10 +22,11 @@ function AppLayout ( { children } ) {
         dispatch( { type: LOG_OUT_REQUEST })
     }, [dispatch])
 
+
     const menu = (
         <Menu>
             <Menu.Item key="0">
-                <Link href={"/@" + me?.nickname }><a>내 스토리</a></Link>
+                <a onClick={() => Router.push('/user/[id]', `/user/@${me.nickname}`)}>내 스토리</a>
             </Menu.Item>
             <Menu.Item key="1">
             <Link href='/write'><a>새글쓰기</a></Link>
@@ -64,7 +68,7 @@ function AppLayout ( { children } ) {
                         // defaultSelectedKeys={['home']}
                     >
                         <Menu.Item key="home"><Link href="/"><a>Home</a></Link></Menu.Item>
-                        <Menu.Item key="post"><Link href="/post"><a>post</a></Link></Menu.Item>
+                        {/* <Menu.Item key="post"><Link href="/post"><a>post</a></Link></Menu.Item> */}
                         <Menu.Item key="general"><Link href="/general"><a>General</a></Link></Menu.Item>
                         <Menu.Item key="qna"><Link href="/qna"><a>Q&A</a></Link></Menu.Item>
                     </Menu>

@@ -4,7 +4,6 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOG_IN_REQUEST } from '../../modules/user';
 import { useRouter } from 'next/router';
-import { grey } from '@ant-design/colors';
 
 function login () {
 
@@ -37,12 +36,13 @@ function login () {
             alignItems: 'center'
         }}>
             <div style={{ 
-                border: `1px solid ${grey[3]}`,
+                border: `1px solid #f5f5f5`,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center', 
-                padding: '1rem'
+                padding: '1rem',
+                backgroundColor: '#ffffff'
             }}>
                 
             <div style={{

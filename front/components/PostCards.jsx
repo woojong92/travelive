@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Card, Avatar } from 'antd';
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 
 function PostCard ({post}) {
-    const router = useRouter();
+    // const router = useRouter();
 
     return (
         <Card
@@ -16,7 +16,7 @@ function PostCard ({post}) {
                     src={post.Images[0].src}
                 />
             }
-            onClick={ () => router.push('/post/[id]', `/post/${ post.id}`)}
+            onClick={ () => Router.push('/post/[id]', `/post/${ post.id}`)}
             // actions={[
             //     <SettingOutlined key="setting" />,
             //     <EditOutlined key="edit" />,
@@ -40,7 +40,7 @@ function PostCards ({posts} ) {
     }
     
     return(
-        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', margin: '2rem 0'}}>
+        <div style={{display: 'flex', flexDirection: 'row', width: '1024px', justifyContent: 'center', flexWrap: 'wrap', margin: '2rem 0'}}>
             {
                 posts.map( post => <PostCard key={post.id} post={post} />)
             }

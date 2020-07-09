@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import AppLayout from '../../components/AppLayout';
 import PropTypes from 'prop-types';
 import PostCards from '../../components/PostCards';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 
 function Username () {
 
-    const { isLoggedIn }   = useSelector( state => state.user )
-    const { me } = useSelector( state => state.user)
-    const dispatch = useDispatch();
 
     const [ posts, setPosts ]  = useState([
         {

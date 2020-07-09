@@ -88,12 +88,13 @@ function signup () {
             alignItems: 'center'
         }}>
             <div style={{ 
-                border: `1px solid ${grey[3]}`,
+                border: `1px solid #f5f5f5`,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center', 
-                padding: '1rem'
+                padding: '1rem',
+                backgroundColor: '#ffffff'
             }}>
 
 
