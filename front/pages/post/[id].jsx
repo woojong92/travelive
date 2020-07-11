@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 // import Link from 'next/link';
 import { useRouter } from 'next/router';
+import AppLayout from '../../components/AppLayout';
 
-export default function PostViewr () {
+
+ function PostViewrPage () {
 
     const router = useRouter()
     const { id } = router.query
@@ -11,5 +13,12 @@ export default function PostViewr () {
         console.log(router)
     }, [])
 
-    return <div>post viewer id: {id}</div>
+    return (
+        <AppLayout>
+             <div>PostViewrPage : {id}</div>
+        </AppLayout>
+    )
 }
+
+
+export default PostViewrPage;

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, Avatar } from 'antd';
+import { Card, Avatar, Skeleton } from 'antd';
+import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
 import Router from 'next/router'
 
 function PostCard ({post}) {
@@ -23,34 +24,36 @@ function PostCard ({post}) {
             //     <EllipsisOutlined key="ellipsis" />,
             // ]}
         >
-            <Card.Meta
-                avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={post.title}
-                description={post.body}
-            />
+           
+                <Card.Meta
+                    avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                    title={post.title}
+                    description={post.body}
+                />
+         
         </Card>
     )
 }
 
 
-function PostCards ({posts} ) {
+function PostCards ({posts, loading} ) {
 
     if( !posts ) {
         return  <div>없음</div>
     }
     
-    return(
+    return (
         <div style={{display: 'flex', flexDirection: 'row', width: '1024px', justifyContent: 'center', flexWrap: 'wrap', margin: '2rem 0'}}>
             {
-                posts.map( post => <PostCard key={post.id} post={post} />)
+                posts.map( post => <PostCard key={post.id} post={post}/>)
             }
         </div>
     )
-    
 }
 
 PostCard.propTypes = {
     post: PropTypes.object.isRequired,
+    // loading: PropTypes.boolean
     // onClickStoryCard: PropTypes.func,
 }
 
@@ -65,7 +68,8 @@ PostCards.propTypes = {
             Comments: PropTypes.arrayOf(PropTypes.object),
             Images: PropTypes.arrayOf(PropTypes.object)
         })
-    )
+    ),
+    // loading: PropTypes.boolean
     // onClickStoryCard: PropTypes.func,
 }
 

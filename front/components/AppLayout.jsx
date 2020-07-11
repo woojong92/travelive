@@ -75,7 +75,10 @@ function AppLayout ( { children } ) {
                     {
                         isLoggedIn ? (
                             <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
-                                <SearchOutlined style={{marginRight: '1rem', fontSize: '18px', color: 'whitesmoke'}}/>
+                                <SearchOutlined 
+                                    style={{marginRight: '1rem', fontSize: '18px', color: 'whitesmoke'}}
+                                    onClick={() => Router.push('/search')}
+                                />
                                 <Dropdown overlay={menu} trigger={['click']}>
                                     <a onClick={e => e.preventDefault()}>
                                         <Avatar 
@@ -86,12 +89,11 @@ function AppLayout ( { children } ) {
                                 </Dropdown>
                             </div>
                         ): (
-                            <div 
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }}>
+                            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                <SearchOutlined 
+                                    style={{marginRight: '1rem', fontSize: '18px', color: 'whitesmoke'}}
+                                    onClick={() => Router.push('/search')}
+                                />
                                 <Button type="primary" style={{ marginRight: '1rem' }}>
                                     <Link href="/signup"><a>회원가입</a></Link>
                                 </Button>

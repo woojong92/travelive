@@ -11,7 +11,7 @@ import { LOAD_POSTS_REQUEST } from '../modules/post';
 function PostPage () {
     // const [ loaded, setLoaded ] = useState(false); 
     const dispatch = useDispatch();
-    const { posts, firstPostsLoaded } = useSelector( state => state.post );
+    const { posts, firstPostsLoaded, isLoadingPosts } = useSelector( state => state.post );
 
     const handleLoadPosts = useCallback( () => {
         dispatch({ type: LOAD_POSTS_REQUEST })
@@ -45,8 +45,7 @@ function PostPage () {
         <AppLayout>
             <div style={{ display: 'flex', justifyContent: 'center'}}> 
                 <PostCards 
-                    posts={posts} 
-                    // onClickStoryCard={onClickStoryCard} 
+                    posts={posts}
                 />
             </div>
         </AppLayout>

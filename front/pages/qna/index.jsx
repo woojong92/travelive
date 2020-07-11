@@ -3,6 +3,7 @@ import AppLayout from '../../components/AppLayout';
 
 import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -24,8 +25,13 @@ const IconText = ({ icon, text }) => (
   </Space>
 );
 
+IconText.propTypes = {
+  icon : PropTypes.elementType,
+  text : PropTypes.string
+}
 
-function GeneralPage () {
+
+function QuestionPage () {
  
   return (
     <AppLayout>
@@ -79,4 +85,4 @@ function GeneralPage () {
   )
 }
 
-export default GeneralPage;
+export default QuestionPage;
