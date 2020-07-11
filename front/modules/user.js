@@ -1,12 +1,13 @@
-const dummyUser = {
+const dummyUser = (data) => ({
+    ...data,
     nickname: 'woody',
-    Story: [],
-    Picture: [],
-    Video: [],
-    Followings: [],
-    Followers: [],
+    Posts: [{id: 1}],
+    Pictures: [{id: 1}],
+    Videos: [{id: 1}],
+    Followings: [{ nickname: '부기초' }, { nickname: 'Chanho Lee' }, { nickname: 'neue zeal' }],
+    Followers: [{ nickname: '부기초' }, { nickname: 'Chanho Lee' }, { nickname: 'neue zeal' }],
     id: 1,
-};
+});
 
 const initialState = {
     isLoggedIn: false, // 로그인 여부
@@ -17,9 +18,6 @@ const initialState = {
     isSigningUp: false,
     signUpErrorReason: '',
     me: null,
-    followingList: [],
-    followerList: [],
-    userInfo: null,
 }
 
 export const SIGN_UP_REQUEST = 'user/SIGN_UP_REQUEST';
@@ -72,7 +70,7 @@ const user = (state = initialState, action) => {
           ...state,
           isLoggingIn: false,
           isLoggedIn: true,
-          me: dummyUser,
+          me: dummyUser(action.data),
           isLoading: false,
         };
       }

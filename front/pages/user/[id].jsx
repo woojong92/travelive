@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AppLayout from '../../components/AppLayout';
 import PropTypes from 'prop-types';
 import PostCards from '../../components/PostCards';
@@ -45,6 +45,11 @@ const TabsBar = styled(Tabs)`
 
 function UserViewerPage () {
 
+    const [keyOfTab, setKeyOfTab ] = useState('1')
+    const onTabClicked = (key) => {
+        setKeyOfTab(key)
+    }
+
     return (
         <AppLayout>
 
@@ -59,15 +64,27 @@ function UserViewerPage () {
                 </div>
 
 
-                <TabsBar defaultActiveKey="1" size={'large'} centered style={{ margin: '3rem 0'}}>
-                    <TabPane tab="글" key="1" />
-                    <TabPane tab="사진" key="2" />
-                    <TabPane tab="소개" key="3" />
+                <TabsBar defaultActiveKey="introduce" activeKey={keyOfTab} size={'large'} style={{ margin: '3rem 0'}} centered onTabClick={onTabClicked}>
+                    <TabPane tab="소개" key="introduce" />
+                    <TabPane tab="글" key="post" />
+                    <TabPane tab="사진" key="picture" />
+                    <TabPane tab="비디오" key="video" />
                 </TabsBar>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center'}}>
+                {
+                    keyOfTab === 'introduce' ? (
+                        <div>안녕하세요. 저는 개발자 우디 입니다.</div>
+                    ) : keyOfTab === 'post' ? (
                         <PostCards posts={posts} />
+                    ) : keyOfTab === 'picture' ? (
+                        <div>key is picture</div>
+                    ) : keyOfTab === 'video' && (
+                        <div>key is video</div>
+                    ) 
+                }
+                
             </div>  
 
             {/* 리스트 형식으로 변경하기 */}

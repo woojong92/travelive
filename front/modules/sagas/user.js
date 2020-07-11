@@ -9,12 +9,13 @@ import {
     SIGN_UP_FAILURE
 } from '../user';
 
-function* login() {
+function* login(action) {
     try{
         // const result = yield call(loginAPI, action.data);
         yield delay(2000);
         yield put({
             type: LOG_IN_SUCCESS,
+            data: action.data
         })
     }catch(error) {
         yield put({

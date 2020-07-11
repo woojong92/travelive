@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, Avatar, Skeleton } from 'antd';
-import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { Card, Avatar } from 'antd';
+// import { SettingOutlined, EditOutlined, EllipsisOutlined } from '@ant-design/icons';
 import Router from 'next/router'
 
 function PostCard ({post}) {
