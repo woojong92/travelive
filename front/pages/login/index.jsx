@@ -96,9 +96,18 @@ function login () {
                         style={{ width: '100%'}}
                         loading={isLoggingIn}
                     >
-                    Log in
+                    로그인하기
                     </Button>
-                    Or <a href="">회원가입하기</a>
+                    
+                    <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '1rem', width: '100%'}}>
+                        <Button style={{width: '48%'}} onClick={() => router.push('/signup')}>
+                            회원가입하기
+                        </Button>
+                        <Button style={{width: '48%'}} onClick={() => router.push('/')}>
+                            홈으로
+                        </Button>
+
+                    </div>
                 </Form.Item>
             </Form>
             </div>

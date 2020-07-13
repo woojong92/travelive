@@ -13,7 +13,6 @@ import {
     // AutoComplete,
   } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { grey } from '@ant-design/colors';
 import { SIGN_UP_REQUEST } from '../../modules/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -55,12 +54,12 @@ const tailFormItemLayout = {
     },
   };
 
-function signup () {
+function SignUpPage () {
 
     const router = useRouter();
     const [form] = Form.useForm()
     const dispatch = useDispatch();
-    const { isSignedUp } = useSelector( state => state.user )
+    const { isSignedUp, isSigningUp } = useSelector( state => state.user )
 
     const onSubmitForm = useCallback((value) => {
         console.log(value);
@@ -74,8 +73,7 @@ function signup () {
     useEffect(() => {
         console.log(isSignedUp)
         if( isSignedUp ) {
-            router.push('/')
-     
+            router.push('/signup/comfirmed')
         }
     }, [isSignedUp])
 
@@ -209,8 +207,11 @@ function signup () {
                 </Form.Item>
 
                 <Form.Item {...tailFormItemLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Register
+                    <Button type="primary" htmlType="submit" style={{marginRight: '1rem'}} loading={isSigningUp}>
+                        회원가입하기
+                    </Button>
+                    <Button type="primary" danger onClick={() => router.push('/')}>
+                        취소하기
                     </Button>
                 </Form.Item>
             </Form>
@@ -219,4 +220,4 @@ function signup () {
     )
 }
 
-export default signup;
+export default SignUpPage;
